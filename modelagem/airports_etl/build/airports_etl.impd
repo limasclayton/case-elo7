@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImpdFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ImportScript>LOAD ASSEMBLY 'TARGIT.Csv.dll' //server
+DATASOURCE [Base] = DOTNET CONNECTION 'TARGIT.CSV.CsvConnection' 'HasHeaders=true;loadasstring=false;type=local;delimiter=,;encoding=iso-8859-1;culture=en-US;detectionrowscount=100;'
+IMPORT [FACT_AIRLINES] = [Base].{SELECT * FROM [C:\Users\Clayton Lima\Documents\Pessoal\Carreira\Vagas\case-elo7\input\airlines.csv]}
+SAVE</ImportScript>
+  <ProjectId>a407c423-8b76-4bbd-ba9c-2cfc832c554c</ProjectId>
+  <Schedules>
+    <Schedule>
+      <Name>Nightly update</Name>
+      <Pattern>0 0 2 1/1 * ? *</Pattern>
+      <ExecutionTimeLimit>0</ExecutionTimeLimit>
+    </Schedule>
+  </Schedules>
+  <ExecuteOnScheduleOnly>false</ExecuteOnScheduleOnly>
+  <PublishSettings>
+    <Enabled>true</Enabled>
+    <Name>airports_etl</Name>
+    <PublishToServer>true</PublishToServer>
+  </PublishSettings>
+  <BuildSettings>
+    <BuildNumber>f1cb202f-7aa5-4583-b456-78694ebecf8c</BuildNumber>
+  </BuildSettings>
+  <Is32BitExecutionMode>false</Is32BitExecutionMode>
+  <RunAsIdentity>
+    <Credentials />
+  </RunAsIdentity>
+  <RetryAttempts>0</RetryAttempts>
+  <RetryIntervalMins>0</RetryIntervalMins>
+</ImpdFile>
