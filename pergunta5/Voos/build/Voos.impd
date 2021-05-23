@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImpdFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ImportScript>LOAD ASSEMBLY 'TARGIT.Csv.dll' //server
+DATASOURCE [CSV] = DOTNET CONNECTION 'TARGIT.CSV.CsvConnection' 'HasHeaders=true;loadasstring=false;type=local;delimiter=;;encoding=iso-8859-1;culture=en-US;detectionrowscount=100;'
+IMPORT [Dim_Aeroporto] = [CSV].{SELECT * FROM [C:\Users\Clayton Lima\Documents\Pessoal\Carreira\Vagas\case-elo7\pergunta5\input\Dim_Aereporto.csv]}
+IMPORT [Dim_Companhia] = [CSV].{SELECT * FROM [C:\Users\Clayton Lima\Documents\Pessoal\Carreira\Vagas\case-elo7\pergunta5\input\Dim_Companhia.csv]}
+IMPORT [Fato_Voos] = [CSV].{SELECT * FROM [C:\Users\Clayton Lima\Documents\Pessoal\Carreira\Vagas\case-elo7\pergunta5\input\Fato_Voos.csv]}
+SAVE</ImportScript>
+  <ProjectId>febc3b6f-2e40-44be-93f5-bda6e71087ee</ProjectId>
+  <Schedules />
+  <ExecuteOnScheduleOnly>false</ExecuteOnScheduleOnly>
+  <PublishSettings>
+    <Enabled>true</Enabled>
+    <Name>Voos</Name>
+    <PublishToServer>true</PublishToServer>
+  </PublishSettings>
+  <BuildSettings>
+    <BuildNumber>5d5a4927-9bb3-45fe-bdd4-64b9ba0b9fce</BuildNumber>
+  </BuildSettings>
+  <Is32BitExecutionMode>false</Is32BitExecutionMode>
+  <RunAsIdentity>
+    <Credentials />
+  </RunAsIdentity>
+  <RetryAttempts>0</RetryAttempts>
+  <RetryIntervalMins>0</RetryIntervalMins>
+</ImpdFile>
